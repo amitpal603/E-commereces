@@ -27,7 +27,7 @@ function ProductsList({ product = [] }) {
                 <img 
                   src={item.thumbnail} 
                   alt={item.title || item.name || 'Product'} 
-                  className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-300'
+                  className='w-full object-cover group-hover:scale-105 transition-transform duration-300'
                 />
               ) : (
                 <div className='text-gray-400 text-sm'>No Image</div>
@@ -69,11 +69,11 @@ function ProductsList({ product = [] }) {
 
               {/* Action Buttons */}
               <div className='flex gap-2'>
-                <button className='flex-1 bg-purple-500 text-white py-2 px-3 rounded-md hover:bg-purple-600 transition-colors duration-200 text-sm font-medium'>
+                <button className='hover:scale-95 flex-1 bg-purple-500 text-white py-2 px-3 rounded-md hover:bg-purple-600 transition-colors duration-200 text-sm font-medium'>
                   Add to Cart
                 </button>
-                <button className='bg-gray-200 text-gray-700 py-2 px-3 rounded-md hover:bg-gray-300 transition-colors duration-200 text-sm'>
-                  View
+                <button className=' font-semibold bg-gray-200 text-gray-700 py-2 px-3 rounded-md hover:bg-gray-300 transition-colors duration-200 text-sm'>
+                  View Detail
                 </button>
               </div>
             </div>

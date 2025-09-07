@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { FaCartShopping } from "react-icons/fa6";
 import { CgMenu } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
+import shop from '/src/assets/shopping-cart.png'
 
 function Navbar() {
   const [menu, setMenu] = useState(false)
@@ -26,7 +27,7 @@ function Navbar() {
             {/* Logo Section */}
             <div className='flex gap-2 sm:gap-4 justify-center items-center'>
               <img 
-                src="src/assets/shopping-cart.png" 
+                src={shop}
                 alt="Logo"
                 className='h-12 w-12 sm:h-16 sm:w-16 lg:h-20 lg:w-20 rounded-full hover:cursor-pointer shadow-lg hover:shadow-lg hover:shadow-[#677bab] transition-shadow duration-300'
               />
