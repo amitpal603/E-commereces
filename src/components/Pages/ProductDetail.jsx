@@ -78,7 +78,7 @@ function ProductDetail() {
                 key={cartDetail.id}
                   src={cartDetail.thumbnail || cartDetail.images?.[0]} 
                   alt={cartDetail.title}
-                  className="w-full h-96 object-cover rounded-lg shadow-md"
+                  className="w-full h-90  object-cover rounded-lg shadow-md "
                 />
               </div>
               
