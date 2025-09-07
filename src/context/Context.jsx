@@ -28,7 +28,7 @@ function Context({ children }) {
 
   useEffect(() => {
     fetchData();
-    setCart(JSON.parse(localStorage.getItem('cartItem') || []))
+    // setCart(JSON.parse(localStorage.getItem('cartItem') || []))
   }, []);
 
   // search feature add 
@@ -66,7 +66,7 @@ function Context({ children }) {
       
      }
     setCart(existingProduct)
-    localStorage.setItem('cartItem',JSON.stringify(existingProduct))
+    // localStorage.setItem('cartItem',JSON.stringify(existingProduct))
   }
   // remove cart
 
@@ -85,8 +85,8 @@ function Context({ children }) {
         totalPrice : (existingItem[findIndex].quantity -1) * existingItem[findIndex].price
       }
     }
-    localStorage.setItem('cartItem',JSON.stringify(existingItem))
-    setCart(existingItem)
+    // localStorage.setItem('cartItem',JSON.stringify(existingItem))
+    // setCart(existingItem)
   }
    const removeHandle = (id) => {
     const update = cart.filter((item) => item.id !== id)
