@@ -4,7 +4,7 @@ import { Ecommerce } from '../../context/Context'
 import ShimmerEffect from '../extra/SimmerEffict'
 
 function Home() {
-  const { product, loading,filterSearch } = useContext(Ecommerce)
+  const {  loading,filterSearch } = useContext(Ecommerce)
     
   return (
     <div className='mt-32 min-h-screen bg-gray-50'>

@@ -9,7 +9,7 @@ function ShimmerEffect() {
         {mapped.map((_, index) => (
           <div
             key={index}
-            className="bg-white border-2 border-purple-400 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group animate-pulse"
+            className="bg-white  rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group animate-pulse"
           >
             {/* Product Image Placeholder */}
             <div className="h-48 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%] animate-[shimmer_1.5s_infinite] flex items-center justify-center overflow-hidden">
