@@ -28,7 +28,9 @@ function Context({ children }) {
   useEffect(() => {
     fetchData();
     const save = JSON.parse(localStorage.getItem("cartItem") || []);
-    setCart(save);
+    if(save) {
+       setCart(save);
+    }
   }, []);
 
   // search feature add
