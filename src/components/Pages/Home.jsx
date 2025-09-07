@@ -3,7 +3,7 @@ import ProductsList from './ProductsList'
 import { Ecommerce } from '../../context/Context'
 
 function Home() {
-  const { product, loading } = useContext(Ecommerce)
+  const { product, loading,filterSearch } = useContext(Ecommerce)
     
   return (
     <div className='mt-32 min-h-screen bg-gray-50'>
@@ -29,8 +29,8 @@ function Home() {
           </div>
 
           {/* Products Display */}
-          {product && product.length > 0 ? (
-            <ProductsList product={product} />
+          {filterSearch && filterSearch.length > 0 ? (
+            <ProductsList product={filterSearch} />
           ) : (
             <div className='flex justify-center items-center min-h-64'>
               <div className='text-center'>

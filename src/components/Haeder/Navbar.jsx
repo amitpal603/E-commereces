@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaCartShopping } from "react-icons/fa6";
 import { CgMenu } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
 import shop from '/src/assets/shopping-cart.png'
+import { Ecommerce } from '../../context/Context';
 
 function Navbar() {
   const [menu, setMenu] = useState(false)
+  const {setSearch} = useContext(Ecommerce)
   
   const toggleMenu = () => {
     setMenu(!menu)
@@ -39,7 +41,8 @@ function Navbar() {
               <input 
                 className='focus:shadow-lg focus:shadow-[#677bab] text-white h-10 lg:h-12 w-full outline-none pl-3 placeholder:font-bold placeholder:text-white rounded-md border-2 bg-transparent'
                 type="text" 
-                placeholder='Search for Product...' 
+                placeholder='Search for Product...'
+                onChange={(e) => setSearch(e.target.value)}
               />
             </div>
 

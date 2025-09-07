@@ -6,6 +6,7 @@ function Context({ children }) {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const [cart, setCart] = useState([]);
+  const [search,setSearch] = useState("")
 
   const fetchData = async () => {
      
@@ -26,8 +27,21 @@ function Context({ children }) {
   useEffect(() => {
     fetchData();
   }, []);
+
+  // search feature add 
+
+  const filterSearch = product.filter((item) => {
+    const searchTerm = search.toLowerCase()
+
+    if(searchTerm === "") return true
+
+    return (
+      item.title.toLowerCase().includes(searchTerm) ||
+      item.category.toLowerCase().includes(searchTerm)
+    )
+  })
   const Store = {
-    product ,loading
+    product ,loading,setSearch,filterSearch
   };
   return <Ecommerce.Provider value={Store}>{children}</Ecommerce.Provider>;
 }
