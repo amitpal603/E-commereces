@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 function ProductsList({ product }) {
   
-  console.log('Products:', product);
     const navigate = useNavigate()
 
   // Handle empty or undefined product array

@@ -7,6 +7,7 @@ function Context({ children }) {
   const [loading, setLoading] = useState(false);
   const [cart, setCart] = useState([]);
   const [search,setSearch] = useState("")
+  const [cartDetail,setCartDetail] = useState(null)
 
   const fetchData = async () => {
      
@@ -41,7 +42,7 @@ function Context({ children }) {
     )
   })
   const Store = {
-    product ,loading,setSearch,filterSearch
+    product ,loading,setSearch,filterSearch,cartDetail,setCartDetail,setLoading
   };
   return <Ecommerce.Provider value={Store}>{children}</Ecommerce.Provider>;
 }
