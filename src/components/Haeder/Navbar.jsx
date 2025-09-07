@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { FaCartShopping } from "react-icons/fa6";
 import { CgMenu } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
@@ -8,7 +8,7 @@ import { Ecommerce } from '../../context/Context';
 
 function Navbar() {
   const [menu, setMenu] = useState(false)
-  const {setSearch} = useContext(Ecommerce)
+  const {setSearch,cart} = useContext(Ecommerce)
   
   const toggleMenu = () => {
     setMenu(!menu)
@@ -71,10 +71,12 @@ function Navbar() {
               {/* Cart */}
               <div className='flex justify-center items-center gap-1 relative'>
                 <h1 className='text-xl sm:text-2xl hover:cursor-pointer text-white hover:text-[#159ab7] transition-colors duration-200'>
+                 <Link to="/cart">
                   <FaCartShopping />
+                 </Link>
                 </h1>
                 <span className='absolute -top-2 -right-2 h-5 w-5 sm:h-6 sm:w-6 flex justify-center items-center rounded-full animate-bounce bg-purple-500 text-white text-xs'>
-                  0
+                  {cart.length}
                 </span>
               </div>
 

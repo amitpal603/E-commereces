@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from "react-router-dom"
 import Context from './context/Context.jsx'
+import {Toaster} from 'react-hot-toast'
 
 
 
@@ -11,7 +12,8 @@ createRoot(document.getElementById('root')).render(
  
   <BrowserRouter>
     <Context>
-       <App />
+       <App/>
+       <Toaster/>
     </Context>
   </BrowserRouter>
 

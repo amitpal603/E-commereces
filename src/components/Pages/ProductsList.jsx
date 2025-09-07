@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { Ecommerce } from '../../context/Context';
 
 function ProductsList({ product }) {
   
     const navigate = useNavigate()
-
+  const {HandleAddToCart,cart} = useContext(Ecommerce)
   // Handle empty or undefined product array
   if (!product || product.length === 0) {
     return (
@@ -73,7 +74,11 @@ function ProductsList({ product }) {
 
               {/* Action Buttons */}
               <div className='flex gap-2'>
-                <button className=' hover:cursor-pointer hover:scale-95 flex-1 bg-purple-500 text-white py-2 px-3 rounded-md hover:bg-purple-600 transition-colors duration-200 text-sm font-medium'>
+                <button onClick={() => 
+                  HandleAddToCart(item)
+                  } disabled={
+                    item ?
+                    cart.findIndex((cartItem) => cartItem.id === product.id ) > -1 : false} className=' disabled:opacity-75 hover:cursor-pointer hover:scale-95 flex-1 bg-purple-500 text-white py-2 px-3 rounded-md  transition-colors duration-200 text-sm font-medium'>
                   Add to Cart
                 </button>
                 <button 

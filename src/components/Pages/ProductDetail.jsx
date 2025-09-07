@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import { Ecommerce } from "../../context/Context";
 
 function ProductDetail() {
+  
   const { id } = useParams();
-  const { cartDetail, setCartDetail, loading, setLoading } = useContext(Ecommerce);
+  const { cartDetail, setCartDetail, loading, setLoading,HandleAddToCart,cart } = useContext(Ecommerce);
 
   const fetchSingleProduct = async () => {
     try {
@@ -28,6 +29,7 @@ function ProductDetail() {
   useEffect(() => {
     if(id) fetchSingleProduct();
   }, [id]);
+
 
   // Loading state
   if (loading) {
@@ -73,6 +75,7 @@ function ProductDetail() {
               {/* Main Image */}
               <div className="mb-4">
                 <img 
+                key={cartDetail.id}
                   src={cartDetail.thumbnail || cartDetail.images?.[0]} 
                   alt={cartDetail.title}
                   className="w-full h-96 object-cover rounded-lg shadow-md"
@@ -186,10 +189,14 @@ function ProductDetail() {
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors duration-200 font-semibold">
+                <button 
+                onClick={() => {
+                  HandleAddToCart(cartDetail)
+                  cart.findIndex((cartItem) => cartItem.id === cartDetail.id > -1)
+                }} className={` hover:cursor-pointer flex-1 bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors duration-200 font-semibold`}>
                   Add to Cart
                 </button>
-                <button className="flex-1 bg-gray-200 text-gray-800 py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors duration-200 font-semibold">
+                <button className="hover:cursor-pointer flex-1 bg-gray-200 text-gray-800 py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors duration-200 font-semibold">
                   Buy Now
                 </button>
               </div>
