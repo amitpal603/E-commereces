@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import ProductsList from './ProductsList'
 import { Ecommerce } from '../../context/Context'
+import ShimmerEffect from '../extra/SimmerEffict'
 
 function Home() {
   const { product, loading,filterSearch } = useContext(Ecommerce)
@@ -9,12 +10,7 @@ function Home() {
     <div className='mt-32 min-h-screen bg-gray-50'>
       {/* Loading State */}
       {loading ? (
-        <div className='flex justify-center items-center min-h-96'>
-          <div className='text-center'>
-            <div className='animate-spin rounded-full h-16 w-16 border-b-2 border-purple-500 mx-auto mb-4'></div>
-            <p className='text-xl font-semibold text-gray-600'>Loading products...</p>
-          </div>
-        </div>
+       <ShimmerEffect/>
       ) : (
         /* Products Content */
         <div>
