@@ -27,10 +27,8 @@ function Context({ children }) {
 
   useEffect(() => {
     fetchData();
-    const save = JSON.parse(localStorage.getItem("cartItem") || []);
-    if(save) {
-       setCart(save);
-    }
+
+    //  setCart(JSON.parse(localStorage.getItem("cartItem") || []));
   }, []);
 
   // search feature add
@@ -70,9 +68,8 @@ function Context({ children }) {
       };
     }
     setCart(existingProduct);
-   if(typeof window !== 'undefine'){
-      localStorage.setItem('cartItem',JSON.stringify(existingProduct))
-   }
+
+    // localStorage.setItem('cartItem',JSON.stringify(existingProduct))
   };
   // remove cart
 
@@ -98,7 +95,7 @@ function Context({ children }) {
     // {
     //   localStorage.setItem('cartItem',JSON.stringify(existingProduct))
     // }
-    setCart(existingItem)
+    setCart(existingItem);
   };
   const removeHandle = (id) => {
     const update = cart.filter((item) => item.id !== id);
