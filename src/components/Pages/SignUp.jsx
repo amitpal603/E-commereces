@@ -2,7 +2,7 @@ import React from 'react'
 
 function SignUp() {
   return (
-    <div>
+    <div className='mt-25'>
       sign up
     </div>
   )
